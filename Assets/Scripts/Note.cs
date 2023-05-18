@@ -39,7 +39,14 @@ public class Note : MonoBehaviour
             return;
         }
         ScoreManager.Instance.Hit(Mathf.RoundToInt(Mathf.Clamp((1/ distance) * 5, 0, 100)));
+        RemoveNote();
+    }
+
+    void RemoveNote()
+    {
+        ArrowManager.Instance.RemoveArrow(this);
         Destroy(gameObject);
+
     }
 
     // Start is called before the first frame update
@@ -47,6 +54,7 @@ public class Note : MonoBehaviour
     {
         timer = 0;
         startPos = transform.position;
+        ArrowManager.Instance.AddArrow(this);
     }
 
     // Update is called once per frame
@@ -71,7 +79,7 @@ public class Note : MonoBehaviour
                 //Miss
                 if (timer >= 1)
                 {
-                    Destroy(gameObject);
+                    RemoveNote();
                 }
                 break;
         }

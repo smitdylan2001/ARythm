@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         Vector3 rot = gameWorldReference.transform.rotation.eulerAngles;
         rot.y = rotation.eulerAngles.y;
         gameWorld = Instantiate(gameWorldReference, startPosition, Quaternion.Euler(rot));
+        gameWorld.transform.position += gameWorld.transform.forward;
     }
 
     public void Reset()
@@ -33,5 +34,6 @@ public class GameManager : MonoBehaviour
         Vector3 rot = gameWorldReference.transform.rotation.eulerAngles;
         rot.y = rotation.eulerAngles.y;
         gameWorld.transform.SetPositionAndRotation(startPosition, Quaternion.Euler(rot));
+        gameWorld.transform.position += gameWorld.transform.forward;
     }
 }
