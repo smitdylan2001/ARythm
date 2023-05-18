@@ -1,0 +1,133 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "ea0acdc2-9b16-4d13-aff8-a05aefd1ab5e",
+            "actions": [
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "fec4a770-3da6-4292-aa0d-5143b6cfbe4e",
+                    "expectedControlType": "Touch",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "75217407-c149-433d-b968-90a0f89c8f93",
+                    "path": "<Touchscreen>/touch0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ec2178c-ca85-430b-b1e3-65eb5488186e",
+                    "path": "<Touchscreen>/touch1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2b8989a5-a571-4058-b8bf-1480cbb82d0f",
+                    "path": "<Touchscreen>/touch2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "16133ad5-7064-4233-9df1-07c704c59646",
+                    "path": "<Touchscreen>/touch3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a98ff5e-a94e-4300-bfe7-b86ddfaeaf2f",
+                    "path": "<Touchscreen>/touch4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30e645d5-7e8a-44aa-9eab-56f1ad228417",
+                    "path": "<Touchscreen>/touch5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2aa56801-c9a7-47f3-bddf-f4409700817b",
+                    "path": "<Touchscreen>/touch6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3cd2b4a-d47d-4f5a-82a9-eafce00c332e",
+                    "path": "<Touchscreen>/touch7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca682380-e06c-4a7a-993b-4aaeef1390e9",
+                    "path": "<Touchscreen>/touch8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48066439-0987-4b8e-bb27-5a12641c5cdc",
+                    "path": "<Touchscreen>/touch9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
