@@ -21,7 +21,7 @@ Email: dylan.smit01@gmail.com
 Description: ARythm is an AR Rythm game, where you need to test your skill in order to get the highest highscore possible!
 
 
-Video Link: [Your Video Link Here]
+Video Link: https://youtu.be/gaUH8WZ5AYM
 
 ### Basic Requirements
 
