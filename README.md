@@ -8,3 +8,7 @@ https://youtu.be/gaUH8WZ5AYM
 
 Download: 
 https://devdunk.itch.io/arythm
+
+
+
+Make for the Loak hackathon: https://loak.co/ar-cade
