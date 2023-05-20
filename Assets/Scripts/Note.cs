@@ -9,7 +9,7 @@ public class Note : MonoBehaviour
     {
         spawning,
         moving,
-
+        dying
     }
 
     [NonSerialized] public float startDuration = 3.42857142857f, moveDuration = 3.42857142857f;
@@ -17,7 +17,7 @@ public class Note : MonoBehaviour
     double timeInstantiated;
     public float assignedTime;
 
-    [NonSerialized] public Vector3 lanePosition, origin, startPos;
+    [NonSerialized] public Vector3 lanePosition, origin, startPos, hitPos;
     float timer;
 
     public void HandleNoteHit()
@@ -26,19 +26,17 @@ public class Note : MonoBehaviour
         if (distance < 0.1f)
         {
             Debug.Log("PERFECT");
-            ScoreManager.Instance.Hit(3);
+            ScoreManager.Instance.Hit(Mathf.RoundToInt(Mathf.Clamp((1/ distance) * 5, 0, 100)));
         }
         else if (distance < 0.2f)
         {
             Debug.Log("Good");
-            ScoreManager.Instance.Hit(1);
+            ScoreManager.Instance.Hit(Mathf.RoundToInt(Mathf.Clamp((1/ distance) * 5, 0, 100)));
         }
         else
         {
-            Debug.Log("Yikes");
-            return;
+            ScoreManager.Instance.Hit(Mathf.RoundToInt(-distance*10));
         }
-        ScoreManager.Instance.Hit(Mathf.RoundToInt(Mathf.Clamp((1/ distance) * 5, 0, 100)));
         RemoveNote();
     }
 
@@ -46,7 +44,6 @@ public class Note : MonoBehaviour
     {
         ArrowManager.Instance.RemoveArrow(this);
         Destroy(gameObject);
-
     }
 
     // Start is called before the first frame update
@@ -54,6 +51,11 @@ public class Note : MonoBehaviour
     {
         timer = 0;
         startPos = transform.position;
+
+        var rot = transform.rotation.eulerAngles;
+        transform.LookAt(origin);
+        transform.rotation = Quaternion.Euler(new Vector3(rot.x, transform.rotation.eulerAngles.y, rot.z));
+        hitPos = (lanePosition - origin).normalized;
         ArrowManager.Instance.AddArrow(this);
     }
 
@@ -73,15 +75,17 @@ public class Note : MonoBehaviour
                 }
                 break;
             case State.moving:
-                transform.position = Vector3.Lerp(lanePosition, origin, timer);
+                transform.position = Vector3.LerpUnclamped(lanePosition, origin, timer);
                 timer += Time.deltaTime / moveDuration;
 
                 //Miss
-                if (timer >= 1)
+                if (Vector3.Distance(origin, transform.position) < 0.1f)
                 {
+                    ScoreManager.Instance.Hit(-5);
                     RemoveNote();
                 }
                 break;
+            
         }
     }
 }

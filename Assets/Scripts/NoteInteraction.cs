@@ -7,7 +7,9 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class NoteInteraction : MonoBehaviour
 {
     [SerializeField] LayerMask noteMask;
+    [SerializeField] GameObject destroyVFX;
     Camera mainCam;
+    RaycastHit hit;
 
 
     void OnEnable()
@@ -30,9 +32,13 @@ public class NoteInteraction : MonoBehaviour
     {
         Ray ray = mainCam.ScreenPointToRay(screenPos);
 
-        RaycastHit hit;
         if (!Physics.Raycast(ray, out hit, 10f, noteMask)) return;
 
         hit.transform.GetComponent<Note>().HandleNoteHit();
+
+        var go = Instantiate(destroyVFX, hit.transform);
+        go.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.Euler(Vector3.zero));
+        go.transform.SetParent(null);
+        go.transform.localScale = Vector3.one;
     }
 }

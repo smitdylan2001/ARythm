@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca38db109c0f88d4a931670d1459da62, type: 3}
+  m_Name: my-universe-Nesterouk
+  m_EditorClassIdentifier: 
+  Song: {fileID: 8300000, guid: 30e913337f48ac44284d861a658d2bc1, type: 3}
+  MidiPath: my-universe-Nesterouk.mid
+  Bpm: 150
+  Notes:
+  - HasNote: 0
+    ExtraDelayBeats: 70
+    Lane: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    FallSpeed: 0
+    MoveSpeed: 0
+  - HasNote: 1
+    ExtraDelayBeats: 70
+    Lane: 0
+    Color: {r: 0, g: 0, b: 0, a: 0}
+    FallSpeed: 0
+    MoveSpeed: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -20,12 +21,11 @@ public class ScoreManager : MonoBehaviour
     public void Hit(int amount)
     {
         score += amount;
+        score = Mathf.Clamp(score, 0, int.MaxValue);
         scoreText.text = score.ToString();
         //Update text;
-        hitSFX.Play();
-    }
-    public void Miss()
-    {
-        missSFX.Play();
+
+        if(amount > 0) hitSFX.Play();
+        else missSFX.Play();
     }
 }

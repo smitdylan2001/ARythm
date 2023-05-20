@@ -16,6 +16,7 @@ public class SongManager : MonoBehaviour
     public float marginOfError;
     public Lane[] lanes;
     public float noteTime;
+    public float noteTravelTime;
     [SerializeField] GameObject Note;
     [SerializeField] AudioSource mainAudioSource;
 
@@ -68,8 +69,11 @@ public class SongManager : MonoBehaviour
         var array = new Melanchall.DryWetMidi.Interaction.Note[notes.Count];
         notes.CopyTo(array, 0);
 
-        foreach (var lane in lanes) lane.SetTimeStamps(array);
-
+        foreach (var lane in lanes)
+        {
+            lane.SetTimeStamps(array);
+            lane.toSkip = songInfo.toSkip;
+        }
         //Invoke(nameof(StartSong), SongDelaySec);
     }
     public void StartSong(SongInfo song)
@@ -103,7 +107,11 @@ public class SongManager : MonoBehaviour
 
         int note = 0;
         float delay = songInfo.SecondsPerBeat;
+        noteTravelTime = 60 / songInfo.Bpm * 5;
 
+        yield return new WaitForSecondsRealtime(songInfo.Song.length);
+
+        GameManager.Instance.EndGame();
 
         //while (timer < songInfo.SongDuration)
         //{
@@ -137,4 +145,5 @@ public class SongManager : MonoBehaviour
 
         //end song
     }
+
 }

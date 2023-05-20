@@ -20,6 +20,7 @@ public class SongInfo : ScriptableObject
     public AudioClip Song;
     public string MidiPath;
     public float Bpm;
+    public int toSkip;
     public float SecondsPerBeat { get { return 60/Bpm; } }
     public float SongDuration { get { return Song.length; } }
 

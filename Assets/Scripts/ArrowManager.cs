@@ -59,8 +59,14 @@ public class ArrowManager : MonoBehaviour
         for (int i = 0; i < arrows.Count; i++)
         {
             Note note = notes[i];
-            Vector3 dir2 = notes[i].transform.position - mainCam.transform.position;
-            bool shouldHide = Vector3.Dot(mainCam.transform.forward, dir2.normalized) > 0.9f;
+            Vector3 dir2 = (notes[i].transform.position - mainCam.transform.position).normalized;
+            Vector3 dir3 = mainCam.transform.forward.normalized;
+            //dir2.x = dir2.z = dir3.x = dir3.z = 0;
+            dir2.y = dir3.y = 0;
+            float yAngleDiff = Vector3.Dot(dir2.normalized, dir3.normalized);
+            bool shouldHide = yAngleDiff > 0.95f;
+            //if(!shouldHide) shouldHide = Vector3.Dot(mainCam.transform.forward, dir2) > 0.9f ;
+
             RectTransform arrow = arrows[i];
             if (shouldHide)
             {
